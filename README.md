@@ -61,4 +61,4 @@ Start time: 2
 
 Finish time:11
 
-Actual time needed to complete: a lot of time
+Actual time needed to complete: lot of time
