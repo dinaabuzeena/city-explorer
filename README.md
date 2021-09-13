@@ -44,7 +44,6 @@ So it's working well
 
 ## Credit and Collaborations
 
-
 The Location : https://locationiq.com/docs .the vs code install and get tools the Thunder Client and get started to get the key for each city . and using ubuntu to install -React JS -inside the React JS install(Bootstrap, axios)
 
 use the Github to push the code to the repository.
@@ -62,4 +61,4 @@ Start time: 2
 
 Finish time:11
 
-Actual time needed to complete: alot of time
+Actual time needed to complete: a lot of time
