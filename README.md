@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Project Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author**: Your Name Goes Here
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
-## Available Scripts
+## Overview
+I'm using the site : https://locationiq.com/docs and download library in react js using ubuntu
 
-In the project directory, you can run:
+Bootstrap
+axios
+use the Thunder Client To get API by using vs.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
+He must type the city amman and he will git address depend what I want to search it and click Explorer to see the city
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The technologies i use it it's
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+the website https://locationiq.com/docs to get the location
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+the ubuntu to get library : . react JS . bootstrap . axios
 
-### `npm run eject`
+vs code to debug the code and use technologies . Thunder Client : to get the key and the name of city to git information of the city like :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+"place_id": "322997238730", "osm_id": "1643504896", "osm_type": "node", "licence": "https://locationiq.com/attribution", "lat": "31.9515694", "lon": "35.9239625", "boundingbox": [ "31.7915694", "32.1115694", "35.7639625", "36.0839625"
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Change Log
+ console log I see : [HMR] Waiting for update signal from WDS... when I search the city and console log of the key :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+{place_id: '14963669', licence: 'https://locationiq.com/attribution', osm_type: 'node', osm_id: '1643504896', boundingbox: Array(4), …} boundingbox: (4) ['31.7915694', '32.1115694', '35.7639625', '36.0839625'] class: "place" display_name: "Amman, 2062, Jordan" icon: "https://locationiq.org/static/images/mapicons/poi_place_city.p.20.png" importance: 0.7100357861995525 lat: "31.9515694" licence: "https://locationiq.com/attribution" lon: "35.9239625" osm_id: "1643504896" osm_type: "node" place_id: "14963669" type: "city" [[Prototype]]: Object
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+So it's working well
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Credit and Collaborations
 
-### Making a Progressive Web App
+The Location : https://locationiq.com/docs .the vs code install and get tools the Thunder Client and get started to get the key for each city . and using ubuntu to install -React JS -inside the React JS install(Bootstrap, axios)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+use the Github to push the code to the repository.
+Time Estimates For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+Name of feature:city expoler
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Estimate of time needed to complete: 9
+
+Start time: 2
+
+Finish time:11
+
+Actual time needed to complete: lot of time
