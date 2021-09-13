@@ -46,7 +46,7 @@ Time Estimates For each of the lab features, make an estimate of the time it wil
 
 
 
-Name of feature:City Explorer
+Name of feature:city expoler
 
 Estimate of time needed to complete: 9
 
