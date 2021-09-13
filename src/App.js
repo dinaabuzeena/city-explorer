@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Location from './components/Location';
 import axios from 'axios';
 import Form from './components/Form';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./components/style.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "./components/style.css";
 
 class App extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class App extends Component {
             longitude={this.state.longitude} />
         }
         <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}
-                   &center=${this.state.latitude},${this.state.longitude}&zoom=1-18`}/>
+                   &center=${this.state.latitude},${this.state.longitude}&zoom=1-18`} alt=""/>
       </>
     )
   }
