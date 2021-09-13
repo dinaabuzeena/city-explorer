@@ -3,7 +3,8 @@ import React, { Component } from 'react'
  class Form extends Component {
     render() {
         return (
-            <>
+                  
+            <div class="divForms">
             <form onSubmit={this.props.handleSubmit}>
                 <input type="text"
                         placeholder="Please interr city name"
@@ -15,7 +16,7 @@ import React, { Component } from 'react'
                 />
             </form>
 
-            </>
+            </div>
         )
     }
 }

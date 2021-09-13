@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Location from './components/Location';
 import axios from 'axios';
 import Form from './components/Form';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./components/style.css";
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +12,8 @@ class App extends Component {
       display_name: "",
       latitude: "",
       longitude: "",
-      showData: false
+      showData: false,
+      iframe: "",
 
     }
   }
@@ -35,7 +38,8 @@ class App extends Component {
         display_name: responseData.display_name,
         longitude: responseData.lon,
         latitude: responseData.lat,
-        showData: true
+        showData: true,
+        iframe: "iframe",
 
       })
     })
