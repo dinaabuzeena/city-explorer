@@ -27,9 +27,10 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    
     let config = {
       method: "GET",
-      baseURL: `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.display_name}`
+      baseURL: `https://api.locationiq.com/v1/autocomplete.php?key=pk.0d2c71af8109151c7f51d71c9df17cee&q=${this.state.display_name}`
     }
     axios(config).then(res => {
       let responseData = res.data[0]
@@ -43,8 +44,9 @@ class App extends Component {
       })
     }).then(() => {
       let city_name=this.state.display_name.split(',')[0]
-      axios.get(`http://${process.env.REACT_APP_BACKEND_URL}/name?lat=${this.state.latitude}&lon=${this.state.longitude}&searchQuery=${city_name}`)
-        .then(res => {this.setState({weatherData: res.data})
+      axios.get(`http://localhost:8002/name?lat=${this.state.latitude}&lon=${this.state.longitude}&searchQuery=${city_name}`)
+        .then(res => {this.setState({weatherData:res.data})
+      
         
         });
 
@@ -65,8 +67,8 @@ class App extends Component {
             latitude={this.state.latitude}
             longitude={this.state.longitude} />
         }
-        <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}
-                   &center=${this.state.latitude},${this.state.longitude}&zoom=1-18`} alt="" />
+        <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.0d2c71af8109151c7f51d71c9df17cee&center=${this.state.latitude},${this.state.longitude}&zoom=1-18`} alt=""/>
+                   
 
         {
           this.state.weatherData.map(item=>{
