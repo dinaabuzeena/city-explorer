@@ -15,7 +15,7 @@ import{Card} from "react-bootstrap";
                                     this.props.weatherDataApi.map(item => {
                                         return (
                                             <div>
-                                                <h2>Current Time: {item.date}</h2>
+                                                <h2>Time: {item.date}</h2>
                                                 <h2>Description: {item.description}</h2>
                                                 <h4>*******************</h4>
                                             </div>
