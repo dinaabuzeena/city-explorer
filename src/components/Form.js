@@ -9,11 +9,13 @@ class Form extends Component {
                         placeholder="Please interr city name"
                         onChange={this.props.handleLocation}
                     />
-               </form>
-            </d      <input type="submit"
+                    <input type="submit"
                         value="Explore"
                     />
-               iv>
+
+                </form>
+
+            </div>
         )
     }
 }
