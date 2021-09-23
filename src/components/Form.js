@@ -1,22 +1,19 @@
-import React, { Component } from 'react'
-
- class Form extends Component {
+import React, { Component } from 'react';
+class Form extends Component {
     render() {
         return (
-                  
-            <div class="divForms">
-            <form onSubmit={this.props.handleSubmit}>
-                <input type="text"
+            <div>
+                <form onSubmit={this.props.handleSubmit}>
+                    <input type="text"
+
                         placeholder="Please interr city name"
                         onChange={this.props.handleLocation}
-                />
-
-                <input type="submit"
+                    />
+               </form>
+            </d      <input type="submit"
                         value="Explore"
-                />
-            </form>
-
-            </div>
+                    />
+               iv>
         )
     }
 }

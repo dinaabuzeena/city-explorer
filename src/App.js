@@ -6,6 +6,7 @@ import Weather from './components/Weather';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/style.css";
 import Movie from './components/Movie';
+import BSimg from './components/BSimg';
 
 class App extends Component {
   constructor(props) {
@@ -15,16 +16,12 @@ class App extends Component {
       latitude: "",
       longitude: "",
       showData: false,
-      iframe: "",
+      showError: false,
       weatherData: [],
-      weatherDataApi: [],
-      MovieList:[],
-      original_title: "",
-      overview: "",
-      poster_path: "",
-      vote_average: "",
-      popularity: "",
-      release_date: "",
+      weatherData: [],
+      display_location: "",
+      shoWeatherAndMovie: false,
+      movie: []
 
 
     }
@@ -41,42 +38,59 @@ class App extends Component {
 
     let config = {
       method: "GET",
-      baseURL: `https://api.locationiq.com/v1/autocomplete.php?key=pk.0d2c71af8109151c7f51d71c9df17cee&q=${this.state.display_name}`
+      baseURL: `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.display_name}`
     }
     axios(config).then(res => {
       let responseData = res.data[0]
       this.setState({
-        display_name: responseData.display_name,
+        display_location: responseData.display_name,
         longitude: responseData.lon,
         latitude: responseData.lat,
         showData: true,
         // iframe: "iframe",
+        showError: false,
 
       })
     }).then(() => {
-      let city_name = this.state.display_name.split(',')[0]
-      axios.get(`http://localhost:8002/name?lat=${this.state.latitude}&lon=${this.state.longitude}&searchQuery=${city_name}`)
+      let city_name = this.state.display_location.split(',')[0]
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather?lat=${this.state.latitude}&lon=${this.state.longitude}`)
         .then(res => {
-          this.setState({ weatherData: res.data })
+          this.setState({
+            weatherData: res.data,
+            showError: false,
+            shoWeatherAndMovie: true
+          })
 
+
+        }).catch(err => {
+          console.log(err)
+          this.setState({
+            shoWeatherAndMovie: false,
+            weatherData: [],
+          })
 
         })
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/movies?query=${city_name}`)
+        .then((res) => {
 
-    }).then(() => {
-      axios.get(`http://localhost:8002/weather?lat=${this.state.latitude}&lon=${this.state.longitude}`)
-        .then(res => { this.setState({ weatherDataApi: res.data }) })
-    }).then(() => {
-      axios.get(`http://localhost:8002/moive?original_title=${this.state.original_title}
-      &overview=${this.state.overview}
-      &poster_path=${this.state.poster_path}
-      & vote_average=${this.state.vote_average}
-      &popularity=${this.state.popularity}
-      &release_date=${this.state.release_date}`)
-        .then(res => { this.setState({ MovieList: res.data }) })
+          this.setState({
+            movie: res.data,
+            status: "",
+            showError: false,
+            shoWeatherAndMovie: true,
+          })
+        })
+
+    }).catch(err => {
+      console.log(err)
+      this.setState({
+        weatherData: [],
+        showError: true,
+        shoWeatherAndMovie: false
+      })
     })
+
   }
-
-
   render() {
     return (
       <>
@@ -84,26 +98,31 @@ class App extends Component {
         <Form handleSubmit={this.handleSubmit}
           handleLocation={this.handleLocation} />
 
-
-        {this.state.showData &&
-          <Location display_name={this.state.display_name}
-            latitude={this.state.latitude}
-            longitude={this.state.longitude} />
+        {
+          this.state.showError && <ErrorCard />
         }
+        {this.state.showData &&
+          <Weather
+            shoWeatherAndMovie={this.state.shoWeatherAndMovie}
+            display_location={this.state.display_location}
+            latitude={this.state.latitude}
+            longitude={this.state.longitude}
+            weatherData={this.state.weatherData} />
+        }
+        {this.state.showData &&
+          <Movie
+            shoWeatherAndMovie={this.state.shoWeatherAndMovie}
+            display_location={this.state.display_location}
+            movie={this.state.movie} />
+        }
+
         <img src={`https://maps.locationiq.com/v3/staticmap?key=pk.0d2c71af8109151c7f51d71c9df17cee&center=${this.state.latitude},${this.state.longitude}&zoom=1-18`} alt="" />
 
 
-        {
-          this.state.weatherData.map(item => {
-            return <>
-              <h1>{item.date}</h1>
-              <h1>{item.description}</h1>
+        <h2>{this.state.status}</h2>
 
-            </>
-          })
-        }
-        <Weather weatherDataApi={this.state.weatherDataApi} />
-        <Movie MovieList={this.state.MovieList} />
+        <BSimg latitude={this.state.latitude}
+          longitude={this.state.longitude} />
       </>
 
     )

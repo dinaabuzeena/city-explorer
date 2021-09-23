@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
-import{Card} from "react-bootstrap";
+import {
+    Card
+}from 'react-bootstrap'
 
  class Movie extends Component {
     render() {
         return (
             <div>
-
-            {   
-              (  <Card>
-                        <Card.Header as="h5">Movie Info</Card.Header>
+               { 
+                (this.props.shoWeatherAndMovie &&  <Card>
+                        <Card.Header as="h5">Available Movie</Card.Header>
                         <Card.Body>
-                         
+                            <Card.Title>Movie for :{this.props.display_location.split(',')[0]}</Card.Title>
                             <Card.Text>
                                 {
-                                    this.props.MovieList.map(item => {
+                                    this.props.movie.map(item => {
                                         return (
                                             <div>
-                                                <h2>Title: {item.original_title}</h2>
-                                                <h2>Description: {item.overview}</h2>
-                                                <h2>Img: {item.poster_path}</h2>
-                                                <h2>Vote: {item. vote_average}</h2>
-                                                <h2>Date: {item.release_date}</h2>
-                                                <h4>*******************</h4>
+                                                <h5>Current title: {item.title}</h5>
+                                                <h5>overview: {item.overview}</h5>
+                                                <h5>average_votes: {item.average_votes}</h5>
+                                                <h5>total_votes: {item.total_votes}</h5>
+                                                <img src={`./${item.image_url}`} alt={`${item.image_url}`}/>
+                                                <h5>popularity: {item.popularity}</h5>
+                                                <h5>released_on: {item.released_on}</h5>
+                                                <h4>************************************************************************************************************************</h4>
                                             </div>
                                         )
                                     })
+
                                 }
                             </Card.Text>
+
                         </Card.Body>
                     </Card>)
-    } 
+    }
             </div>
         )
     }
