@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   handleLocation = (e) => {
+    // console.log(e)
     let display_name = e.target.value;
     this.setState({
       display_name: display_name
